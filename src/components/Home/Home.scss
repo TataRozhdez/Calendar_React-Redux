@@ -1,0 +1,40 @@
+@import '../../resources/variables.scss';
+
+.Home {
+  width: 100vw;
+  height: 100vh;
+
+  .main {
+    height: 86.1vh;
+    display: flex;
+    flex-direction: row;
+
+    .baner {
+      width: 63.9vw;
+      height: 100%;
+      padding-right: 1.719vw;
+      text-align: right;
+      background: url(../../resources/baner.jpg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+  
+      h1 {
+        color: $detailed-color;
+        font-size: 2.604vw;
+        font-family: 'Rubik-Bold';
+        line-height: 3.333vw;
+        letter-spacing: 0.182vw;
+        margin-bottom: 0.182vw;
+        text-transform: uppercase;
+      }
+  
+      p {
+        font-size: 1.563vw;
+        line-height: 2.083vw;
+        letter-spacing: 0.6px;
+      }
+    }
+  } 
+}

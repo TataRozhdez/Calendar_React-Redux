@@ -1,0 +1,29 @@
+@import '../../resources/variables.scss';
+
+.Calendar {
+  width: 36.1vw;
+  height: 100%;
+  background-color: $calendar-bck;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .calendar-content {
+    width: 19.792vw;
+    height: 480px;
+    background-color: green;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .header-cal {
+      display: flex;
+      flex-direction: row;
+    }
+    .body-cal {
+      display: grid;
+      grid-template-columns: repeat(7, auto);
+    }
+  }
+}

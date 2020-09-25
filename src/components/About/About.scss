@@ -1,0 +1,24 @@
+@import '../../resources/variables.scss';
+
+.About {
+  width: 100vw;
+  height: 100vh;
+
+  .about-txt {
+    width: 100%;
+    color: $base-bck1;
+    padding: 9.07vh 15.208vw;
+
+    h2 {
+      font-size: 2.125em;
+      font-family: 'Rubik-Bold';
+      margin-bottom: 7.2vh;
+    }
+
+    p {
+      font-size: 1.25em;
+      letter-spacing: 0.4px;
+      line-height: 36px;
+    }
+  }
+}

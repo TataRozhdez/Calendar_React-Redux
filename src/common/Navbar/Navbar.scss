@@ -1,0 +1,24 @@
+@import '../../resources/variables.scss';
+
+.Navbar {
+  width: 100vw;
+  height: 13.9vh;
+  background-color: $white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 110px;
+
+  img {
+    width: 165px;
+  }
+
+  a {
+    font-size: 28px;
+    font-family: 'Rubik-Bold';
+    text-transform: uppercase;
+  }
+  a:first-child {
+    margin-right: 70px;
+  }
+}
