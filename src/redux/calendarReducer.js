@@ -1,19 +1,24 @@
 import {
   SURRENT_DATE,
-  SET_FULL_MONTH
-  // PREV_MONTH,
-  // NEXT_MONTH,
+  SET_FULL_MONTH,
+  PREV_MONTH,
+  NEXT_MONTH
 } from './types'
 
 export const initialState = {
   surrentDate: {
     day: null,
-    name: null,
+    nameDay: null,
     month: null,
+    numMonth: null,
     year: null
   },
   fullMonth: [],
-  nameDay: ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat'],
+  nameDay: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+  pickDay: {
+    render: false,
+    data: []
+  },
   loading: true
 }
 
@@ -31,6 +36,16 @@ export const calendarReducer = (state = initialState, action) => {
         fullMonth: action.fullMonth,
         surrentDate: action.surrent
       }
+    case PREV_MONTH:
+      return {
+        ...state,
+        surrentDate: action.payload
+      }
+      case NEXT_MONTH:
+        return {
+          ...state,
+          surrentDate: action.payload
+        }
     default:
       return state
   }

@@ -1,0 +1,84 @@
+@import '../../resources/variables.scss';
+
+.PickDay {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: #272829c4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .window-day {
+    background-color: $pick-day-bck;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.465vw 1.263vw 1.263vw;
+    font-weight: bold;
+    letter-spacing: 0.66px;
+
+    @media (max-width: $xs-screen) {
+      padding: 2.465vw 2.263vw 2.263vw;
+    }
+
+    .esc {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: $detailed-color;
+      color: $base-bck1;
+      width: 1.414vw;
+      height: 1.414vw;
+      font-size: 1.212vw;
+      text-align: center;
+      vertical-align: baseline;
+      cursor: pointer;
+
+      @media (max-width: $xs-screen) {
+        width: 3.414vw;
+        height: 3.414vw;
+        font-size: 2.812vw;
+      }
+    }
+
+    .data {
+      width: 13.111vw;
+      @media (max-width: $xs-screen) {
+        width: 33.111vw;
+      }
+
+      span {
+        color: #A2A2A2;
+        font-size: 1.010vw; 
+        @media (max-width: $xs-screen) {
+          font-size: 2.41vw; 
+        }
+      }
+      p {
+        color: $base-bck1;
+        border: 2px solid $detailed-color;
+        font-size: 1.111vw;
+        width: 100%;
+        padding: 0.657vw 0.960vw 0.606vw;
+        margin-top: 0.404vw;
+
+        @media (max-width: $xs-screen) {
+          font-size: 3.111vw;
+          padding: 1.657vw 1.960vw 1.606vw;        
+        }
+      }
+
+      &:not(:last-child) {
+        margin-right: 1.010vw;
+
+        @media (max-width: $xs-screen) {
+          margin-right: 3.010vw;         
+        }
+      }
+    }
+  }
+}

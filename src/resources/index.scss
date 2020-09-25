@@ -24,6 +24,8 @@ h1,
 h2,
 h3,
 p,
+ul,
+li,
 body {
   margin: 0;
   padding: 0;
@@ -35,7 +37,7 @@ body {
 }
 
 ul {
-  list-style: none
+  list-style: none;
 }
 
 a {

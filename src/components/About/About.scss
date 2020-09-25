@@ -13,12 +13,25 @@
       font-size: 2.125em;
       font-family: 'Rubik-Bold';
       margin-bottom: 7.2vh;
+
+      @media (max-width: $xs-screen) {
+        font-size: 4.604vw;
+        line-height: 5.333vw;
+        letter-spacing: 0.382vw;
+        margin-bottom: 3.182vw;
+        text-align: center;
+      }
     }
 
     p {
       font-size: 1.25em;
       letter-spacing: 0.4px;
       line-height: 36px;
+
+      @media (max-width: $xs-screen) {
+        font-size: 2.563vw;
+        line-height: 4.083vw;
+      }
     }
   }
 }

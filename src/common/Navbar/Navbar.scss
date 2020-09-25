@@ -2,23 +2,35 @@
 
 .Navbar {
   width: 100vw;
-  height: 13.9vh;
+  height: 7.576vw;
+  position: absolute;
   background-color: $white;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 50px 110px;
+  align-items: flex-end;
+  padding: 2.525vw 5.556vw;
+
+  @media (max-width: $xs-screen) {
+    height: 10.576vw;
+    padding: 2.525vw 5.556vw;
+  }
 
   img {
-    width: 165px;
+    width: 8.333vw;
+    @media (max-width: $xs-screen) {
+      width: 16.333vw;
+    }
   }
 
   a {
-    font-size: 28px;
-    font-family: 'Rubik-Bold';
+    font-size: 1.515vw;
     text-transform: uppercase;
+    font-weight: 800;
+    @media (max-width: $xs-screen) {
+      font-size: 3.059vw;
+    }
   }
   a:first-child {
-    margin-right: 70px;
+    margin-right: 3.535vw;
   }
 }

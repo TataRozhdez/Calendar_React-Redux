@@ -1,23 +1,26 @@
 import moment from 'moment'
 import {
   SURRENT_DATE,
-  SET_FULL_MONTH
-  // PREV_MONTH,
-  // NEXT_MONTH,
-  // CALENDAR_ERROR
+  SET_FULL_MONTH,
+  PREV_MONTH,
+  NEXT_MONTH
 } from './types'
 
 // get month
 export const surrentDate = () => {
   const month = moment().format('MMMM')
   const day = moment().format('D')
-  const name = moment().format('d')
+  const nameDay = moment().format('d')
   const year = moment().format('YYYY')  
+
+  const firstDay = new Date(`${month} 1, ${year} `)
+  const numMonth = firstDay.getMonth()
 
   const surrentDate = {
     day,
-    name,
+    nameDay,
     month,
+    numMonth,
     year
   }
 
@@ -34,17 +37,21 @@ const fullMonthDay = (year, month) => {
 }
 
 // render full month
-export const renderMonth = async (dispatch) => {
-  const state = await dispatch(surrentDate())
+export const renderMonth = async (dispatch, s) => {
+  let state = s
   const rMonth = []
-  
+
+  if (!state) {
+    const q = await dispatch(surrentDate())
+    state = q.surrentDate
+  }
+
   if (state) {
-    const { month, year } = state.surrentDate
+
+    const { month, year, numMonth } = state
     const firstDay = new Date(`${month} 1, ${year} `)
-    const numMonth = firstDay.getMonth()
     const dayInMonth = fullMonthDay(year, numMonth)
   
-    // const rMonth = []
     for (let i = 1; dayInMonth >= i; i++) {
       rMonth.push(i.toString())
     }
@@ -53,7 +60,7 @@ export const renderMonth = async (dispatch) => {
     let firstDayName = firstDay.getDay()
   
     while (firstDayName > 0) {
-      rMonth.unshift(dayInPrevMonth.toString())
+      rMonth.unshift(dayInPrevMonth)
       dayInPrevMonth--
       firstDayName--
     }
@@ -63,20 +70,65 @@ export const renderMonth = async (dispatch) => {
     let i = 1
   
     while (lastDayName < 6) {
-      rMonth.push(i.toString())
+      rMonth.push(i)
       lastDayName++
       i++
     }
   }
-  console.log(rMonth)
-  console.log(state.surrentDate)
 
   return {
     type: SET_FULL_MONTH,
     fullMonth: rMonth,
-    surrent: state.surrentDate
+    surrent: state
   }
 }
-// next month
 
-// pick day
+// prev month
+export const renderPrevMonth = (day, month, year, dispatch) => {
+  const newMonth = month - 1
+
+  const d = new Date(year, newMonth, day)
+  const nameDay = d.getDay()
+  const options = { month: 'long'}
+  const nameM = new Intl.DateTimeFormat('en-US', options).format(d)
+
+  const surrentDate = {
+    day,
+    nameDay,
+    month: nameM,
+    numMonth: newMonth,
+    year
+  }
+
+  dispatch(renderMonth(dispatch, surrentDate))
+
+  return {
+    type: PREV_MONTH,
+    payload: surrentDate
+  }
+}
+
+// next month
+export const renderNextMonth = (day, month, year, dispatch) => {
+  const newMonth = month + 1
+
+  const d = new Date(year, newMonth, day)
+  const nameDay = d.getDay()
+  const options = { month: 'long'}
+  const nameM = new Intl.DateTimeFormat('en-US', options).format(d)
+
+  const surrentDate = {
+    day,
+    nameDay,
+    month: nameM,
+    numMonth: newMonth,
+    year
+  }
+
+  dispatch(renderMonth(dispatch, surrentDate))
+
+  return {
+    type: NEXT_MONTH,
+    payload: surrentDate
+  }
+}

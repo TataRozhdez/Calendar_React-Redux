@@ -9,21 +9,88 @@
   justify-content: center;
 
   .calendar-content {
-    width: 19.792vw;
-    height: 480px;
-    background-color: green;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    text-align: center;
     align-items: center;
+    font-family: 'Rubik-Regular';
 
     .header-cal {
       display: flex;
       flex-direction: row;
+      align-items: center;
+      text-transform: uppercase;
+      justify-content: space-between;
+      width: 100%;
+      font-size: 0.960vw;
+      height: 2.626vw;
+
+      @media (max-width: $xs-screen) {
+        font-size: 3.059vw;
+        height: 6.118vw;
+      }
+
+      .arrow {
+        width: 2.626vw;
+        height: 2.626vw;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &:hover {
+          background-color: #fdd0004f;
+        }
+
+        @media (max-width: $xs-screen) {
+          height: 6.118vw;
+          width: 6.118vw;
+        }
+      }
     }
+
     .body-cal {
+      width: 100%;
       display: grid;
       grid-template-columns: repeat(7, auto);
+      font-size: 0.859vw;
+      cursor: pointer;
+
+      @media (max-width: $xs-screen) {
+        font-size: 2.3vw;
+      }
+
+      li {
+        width: 2.626vw;
+        height: 2.626vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &:hover {
+          background-color: #fdd0004f;
+        }
+
+        &.today {
+          background-color: $detailed-color;
+          color: $calendar-bck;
+        }
+
+        &.another-month {
+          opacity: 24%;
+        }
+
+        @media (max-width: $xs-screen) {
+          width: 4.626vw;
+          height: 6.118vw;
+        }
+        &.cal-footer {
+          cursor: default;
+        }
+      }  
+    }
+    span {
+      content: '';
+      width: 100%;
+      border-top: 1px solid $base-txt-color;
     }
   }
 }

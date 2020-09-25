@@ -5,7 +5,8 @@
   height: 100vh;
 
   .main {
-    height: 86.1vh;
+    height: 100%;
+    padding-top: 7.576vw;
     display: flex;
     flex-direction: row;
 
@@ -15,10 +16,16 @@
       padding-right: 1.719vw;
       text-align: right;
       background: url(../../resources/baner.jpg);
+      background-size: auto 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: flex-end;
+
+      @media (max-width: $xs-screen) {
+        background-size: auto 117%;
+        background-position: 14% 17%;
+      }
   
       h1 {
         color: $detailed-color;
@@ -28,12 +35,24 @@
         letter-spacing: 0.182vw;
         margin-bottom: 0.182vw;
         text-transform: uppercase;
+
+        @media (max-width: $xs-screen) {
+          font-size: 4.604vw;
+          line-height: 5.333vw;
+          letter-spacing: 0.382vw;
+          margin-bottom: 2.182vw;
+        }
       }
   
       p {
         font-size: 1.563vw;
         line-height: 2.083vw;
         letter-spacing: 0.6px;
+
+        @media (max-width: $xs-screen) {
+          font-size: 2.563vw;
+          line-height: 3.083vw;
+        }
       }
     }
   } 
