@@ -8,6 +8,15 @@
   align-items: center;
   justify-content: center;
 
+  @media (max-width: $xs-screen) {
+    width: auto;
+    height: auto;
+    position: absolute;
+    background-color: inherit;
+    top: 10%;
+    right: 10%;
+  }
+
   .calendar-content {
     display: flex;
     flex-direction: column;
@@ -56,7 +65,7 @@
       cursor: pointer;
 
       @media (max-width: $xs-screen) {
-        font-size: 2.3vw;
+        font-size: 3.3vw;
       }
 
       li {
@@ -79,8 +88,8 @@
         }
 
         @media (max-width: $xs-screen) {
-          width: 4.626vw;
-          height: 6.118vw;
+          width: 5.9vw;
+          height: 6.8vw;
         }
         &.cal-footer {
           cursor: default;

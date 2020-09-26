@@ -9,6 +9,7 @@
     padding-top: 7.576vw;
     display: flex;
     flex-direction: row;
+    position: relative;
 
     .baner {
       width: 63.9vw;
@@ -23,8 +24,10 @@
       align-items: flex-end;
 
       @media (max-width: $xs-screen) {
-        background-size: auto 117%;
+        background-size: auto 100%;
         background-position: 14% 17%;
+        z-index: -1;
+        width: 100%;
       }
   
       h1 {
@@ -50,8 +53,8 @@
         letter-spacing: 0.6px;
 
         @media (max-width: $xs-screen) {
-          font-size: 2.563vw;
-          line-height: 3.083vw;
+          font-size: 3.3vw;
+          line-height: 3.83vw;
         }
       }
     }

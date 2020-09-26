@@ -8,6 +8,10 @@
     color: $base-bck1;
     padding: 9.07vh 15.208vw;
 
+    @media (max-width: $xs-screen) {
+      padding: 7.07vh 7.208vw;
+    }
+
     h2 {
       font-size: 2.125em;
       font-family: 'Rubik-Bold';
